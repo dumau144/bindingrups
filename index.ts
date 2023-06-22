@@ -1,4 +1,4 @@
-import { interStage } from "./program";
+import { fundamentals } from "./fundamentals";
 
 async function main() {
   const adapter = await navigator.gpu!.requestAdapter();
@@ -25,7 +25,7 @@ async function main() {
     format: navigator.gpu.getPreferredCanvasFormat(),
   });
 
-  const render = await interStage(device, context);
+  const render = await fundamentals(device, context);
 
   const frame = () => {
     render();
