@@ -1,0 +1,12 @@
+{
+  "name": "bindingroup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "parcel": "^2.9.2"
+  }
+}
