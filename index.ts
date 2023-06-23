@@ -1,4 +1,4 @@
-import { compute } from "./compute";
+import { compute } from "./compute_complex";
 
 async function main() {
   const adapter = await navigator.gpu!.requestAdapter();
