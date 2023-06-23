@@ -1,4 +1,4 @@
-import { fundamentals } from "./fundamentals";
+import { compute } from "./compute";
 
 async function main() {
   const adapter = await navigator.gpu!.requestAdapter();
@@ -25,7 +25,7 @@ async function main() {
     format: navigator.gpu.getPreferredCanvasFormat(),
   });
 
-  const render = await fundamentals(device, context);
+  const render = await compute(device, context);
 
   const frame = () => {
     render();
