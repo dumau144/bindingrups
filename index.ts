@@ -31,5 +31,7 @@ async function main() {
     render();
     requestAnimationFrame(frame);
   };
+
+  frame()
 }
 main();
