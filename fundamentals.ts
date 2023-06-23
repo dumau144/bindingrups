@@ -10,10 +10,11 @@ export const fundamentals = async (
         let pos = array(
           vec2f( 0.0,  0.5),
           vec2f(-0.5, -0.5),
-          vec2f( 0.5, -0.5) 
+          vec2f( 0.5, -0.5),
+          vec2f( 0.0,  0.5),
         );
 
-        return vec4f(pos[vertexIndex] * 2.0, 0.0, 1.0);
+        return vec4f(pos[vertexIndex] * 1.0, 0.0, 1.0);
       }
       //               RENDER TARGET 0
       @fragment fn fs() -> @location(0) vec4f {
@@ -28,6 +29,9 @@ export const fundamentals = async (
     vertex: {
       module: module,
       entryPoint: "vs",
+    },
+    primitive: {
+      topology: 'line-strip',
     },
     fragment: {
       module: module,
@@ -58,7 +62,7 @@ export const fundamentals = async (
     });
 
     pass.setPipeline(pipeline);
-    pass.draw(3);
+    pass.draw(4);
 
     pass.end();
 
