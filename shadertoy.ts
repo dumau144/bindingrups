@@ -17,7 +17,8 @@ export const shaderToy = (device: GPUDevice, context: GPUCanvasContext) => {
         );
 
         return vec4f(pos[vertexIndex], 0.0, 1.0);
-      } 
+      }
+      
 
       struct FragIn{
         @builtin(position) coord_in: vec4<f32>
