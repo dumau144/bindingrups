@@ -38,6 +38,8 @@ export const shaderToy = (device: GPUDevice, context: GPUCanvasContext) => {
     usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST | GPUBufferUsage.COPY_SRC
   })
 
+  device.queue.writeBuffer(uniformBuffer, 0, uniformBufferInput);
+
   const pipeline = device.createRenderPipeline({
     label: "Display shader pipeline",
     layout: 'auto',

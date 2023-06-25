@@ -8,16 +8,17 @@ async function main() {
   document.body.appendChild(canvas);
 
   const observer = new ResizeObserver((entries) => {
-    const [entry] = entries;
-    const canvas = entry.target as HTMLCanvasElement;
-
-    const width = entry.contentBoxSize[0].inlineSize;
-    const height = entry.contentBoxSize[0].blockSize;
-
-    canvas.width = Math.min(width, device.limits.maxTextureDimension2D);
-    canvas.height = Math.min(height, device.limits.maxTextureDimension2D);
-
-    resize()
+    for (const entry of entries) {
+      const canvas = entry.target as HTMLCanvasElement;
+  
+      const width = entry.contentBoxSize[0].inlineSize;
+      const height = entry.contentBoxSize[0].blockSize;
+  
+      canvas.width = Math.min(width, device.limits.maxTextureDimension2D);
+      canvas.height = Math.min(height, device.limits.maxTextureDimension2D);
+  
+      resize()
+    }
   });
   observer.observe(canvas);
 
