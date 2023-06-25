@@ -16,7 +16,7 @@ export const fundamentals = async (
 
         return vec4f(pos[vertexIndex] * 1.0, 0.0, 1.0);
       }
-      //               RENDER TARGET 0
+      // RENDER TARGET 0
       @fragment fn fs() -> @location(0) vec4f {
         return vec4f(1.0, 0.0, 0.0, 1.0);
       }
