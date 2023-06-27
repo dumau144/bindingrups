@@ -1,4 +1,4 @@
-import { storagebuffer } from "./storagebuffer";
+import { instanced } from "./instanced";
 
 async function main() {
   const adapter = await navigator.gpu!.requestAdapter();
@@ -26,7 +26,7 @@ async function main() {
     format: navigator.gpu.getPreferredCanvasFormat(),
   });
 
-  const render = await storagebuffer(device, context);
+  const render = await instanced(device, context);
 
   const frame = () => {
     render();
