@@ -1,4 +1,4 @@
-import { shaderToy, resize } from "./shadertoy";
+import { storagebuffer } from "./storagebuffer";
 
 async function main() {
   const adapter = await navigator.gpu!.requestAdapter();
@@ -16,8 +16,6 @@ async function main() {
   
       canvas.width = Math.min(width, device.limits.maxTextureDimension2D);
       canvas.height = Math.min(height, device.limits.maxTextureDimension2D);
-  
-      resize()
     }
   });
   observer.observe(canvas);
@@ -28,7 +26,7 @@ async function main() {
     format: navigator.gpu.getPreferredCanvasFormat(),
   });
 
-  const render = await shaderToy(device, context);
+  const render = await storagebuffer(device, context);
 
   const frame = () => {
     render();
