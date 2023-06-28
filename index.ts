@@ -1,4 +1,4 @@
-import { instanced } from "./instanced";
+import { indirect } from "./indirect";
 
 async function main() {
   const adapter = await navigator.gpu!.requestAdapter();
@@ -26,13 +26,13 @@ async function main() {
     format: navigator.gpu.getPreferredCanvasFormat(),
   });
 
-  const render = await instanced(device, context);
+  const render = await indirect(device, context);
 
-  const frame = () => {
-    render();
+  const frame = (dt) => {
+    render(dt);
     requestAnimationFrame(frame);
   };
 
-  frame()
+  requestAnimationFrame(frame);
 }
 main();
